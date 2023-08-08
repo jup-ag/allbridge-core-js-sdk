@@ -1,12 +1,3 @@
-export {
-  ApproveParams,
-  BaseSendParams,
-  CheckAllowanceParams,
-  GetAllowanceParams,
-  GetTokenBalanceParams,
-  SendParams,
-} from "../services/bridge/models/bridge.model";
-export { BridgeService } from "../services/bridge/index";
 export { LiquidityPoolService } from "../services/liquidity-pool/index";
 export { TransactionResponse } from "../services/models/index";
 export { Messenger, TransferStatusResponse, BridgeTransaction } from "../client/core-api/core-api.model";

@@ -25,6 +25,19 @@ async function main() {
     format: "esm",
     outdir: path.join(__dirname, "../dist/esm"),
     entryPoints: [path.join(__dirname, "../src/index.ts")],
+    plugins: [
+      {
+        name: "external",
+        setup(build) {
+          build.onResolve({ filter: /.*/ }, (args) => {
+            if (!/^(#|\/|\.\/|\.\.\/)/.test(args.path)) {
+              // reportPackagePath(args.path);
+              return { external: true };
+            }
+          });
+        },
+      },
+    ],
   });
 
   // browser

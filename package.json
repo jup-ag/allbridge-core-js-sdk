@@ -1,10 +1,8 @@
 {
   "name": "@allbridge/bridge-core-sdk",
   "version": "0.0.0-development",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/src/index.d.ts",
-  "browser": "./dist/browser/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "license": "MIT",
   "files": [
     "/dist"
@@ -21,6 +19,7 @@
     "access": "public"
   },
   "scripts": {
+    "build:tsup": "tsup",
     "build": "npm run clean && npm run type:dts && tsc && npm run build:main",
     "build:main": "node -r ./esbuild-hook ./scripts/build",
     "clean": "node -r ./esbuild-hook ./scripts/clean",
@@ -39,9 +38,10 @@
     "tsdoc": "typedoc --excludeInternal src/index.ts",
     "semantic-release": "semantic-release",
     "prepack": "npm run updateVersion",
-    "prepare": "npm run build",
+    "prepare": "npm run build:tsup",
     "updateVersion": "node -p \"'export const VERSION = ' + JSON.stringify(require('./package.json').version) + ';'\" > src/version.ts"
   },
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/allbridge-io/allbridge-core-js-sdk"
@@ -49,6 +49,7 @@
   "keywords": [],
   "devDependencies": {
     "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
+    "@project-serum/anchor": "^0.25.0",
     "@ryansonshine/commitizen": "^4.2.8",
     "@ryansonshine/cz-conventional-changelog": "^3.3.4",
     "@semantic-release/changelog": "^6.0.3",
@@ -56,6 +57,7 @@
     "@semantic-release/github": "^8.0.7",
     "@semantic-release/npm": "^10.0.3",
     "@semantic-release/release-notes-generator": "^10.0.3",
+    "@solana/web3.js": "^1.66.2",
     "@types/bn.js": "^5.1.1",
     "@types/jest": "^29.5.1",
     "@types/node": "^18.16.1",
@@ -82,18 +84,31 @@
     "prettier": "^2.7.1",
     "semantic-release": "^19.0.5",
     "source-map-support": "^0.5.21",
+    "tronweb": "^4.4.0",
     "tronweb-typings": "^1.0.1",
     "ts-jest": "^29.1.0",
+    "tsup": "^7.2.0",
     "typechain": "^8.1.0",
     "typedoc": "^0.23.15",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "web3": "^1.9.0",
+    "web3-core": "^1.9.0",
+    "web3-eth-contract": "^1.9.0",
+    "web3-utils": "^1.9.0"
   },
   "overrides": {
     "semver-regex": "3.1.4"
   },
+  "peerDependencies": {
+    "@project-serum/anchor": ">0.25.0",
+    "@solana/web3.js": ">1.66.2",
+    "tronweb": ">4.4.0",
+    "web3": ">1.9.0",
+    "web3-core": ">1.9.0",
+    "web3-eth-contract": ">1.9.0",
+    "web3-utils": ">1.9.0"
+  },
   "dependencies": {
-    "@project-serum/anchor": "^0.25.0",
-    "@solana/web3.js": "^1.66.2",
     "@types/big.js": "^6.1.6",
     "assert": "^2.0.0",
     "big.js": "^6.2.1",
@@ -101,12 +116,8 @@
     "erc-20-abi": "^1.0.0",
     "querystring": "^0.2.1",
     "randombytes": "^2.1.0",
-    "timed-cache": "^2.0.0",
-    "tronweb": "^4.4.0",
-    "web3": "^1.9.0",
-    "web3-core": "^1.9.0",
-    "web3-eth-contract": "^1.9.0",
-    "web3-utils": "^1.9.0"
+    "rollup": "^3.27.2",
+    "timed-cache": "^2.0.0"
   },
   "pnpm": {
     "auditConfig": {

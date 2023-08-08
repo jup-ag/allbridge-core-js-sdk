@@ -1,5 +1,5 @@
 // @ts-expect-error import tron
-import * as TronWeb from "tronweb";
+import TronWeb from "tronweb";
 import Web3 from "web3";
 import { AbiItem } from "web3-utils";
 import { ChainType } from "../../../chains";

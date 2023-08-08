@@ -11,6 +11,7 @@ function esbuildHook(code, filepath) {
     loader: "ts",
     format: "cjs",
     sourcefile: filepath,
+    
   });
 
   cache[filepath] = {

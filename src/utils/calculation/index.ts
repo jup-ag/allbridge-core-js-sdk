@@ -1,5 +1,5 @@
 import { Big, BigSource } from "big.js";
-import BN from "bn.js";
+import { BN } from "bn.js";
 import { PoolInfo, Token } from "../../tokens-info";
 import { SYSTEM_PRECISION } from "./constants";
 

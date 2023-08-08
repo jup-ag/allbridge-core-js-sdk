@@ -1,4 +1,4 @@
-import BN from "bn.js";
+import { BN } from "bn.js";
 
 export function amountToHex(amount: string): string {
   return "0x" + new BN(amount).toString("hex");
