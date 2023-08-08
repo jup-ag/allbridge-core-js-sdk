@@ -58,7 +58,7 @@
     "@semantic-release/release-notes-generator": "^10.0.3",
     "@types/bn.js": "^5.1.1",
     "@types/jest": "^29.5.1",
-    "@types/node": "^18.8.2",
+    "@types/node": "^18.16.1",
     "@types/prompts": "^2.4.1",
     "@types/randombytes": "^2.0.0",
     "@types/timed-cache": "^2.0.0",
@@ -96,7 +96,6 @@
     "@solana/web3.js": "^1.66.2",
     "@types/big.js": "^6.1.6",
     "assert": "^2.0.0",
-    "axios": "^1.0.0",
     "big.js": "^6.2.1",
     "bn.js": "^5.2.1",
     "erc-20-abi": "^1.0.0",
@@ -123,6 +122,8 @@
     "testEnvironment": "node",
     "testRegex": ".*\\.test\\.ts$",
     "preset": "ts-jest",
-    "transformIgnorePatterns": ["<rootDir>/node_modules/.pnpm/(?!(timed-cache))"]
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/.pnpm/(?!(timed-cache))"
+    ]
   }
 }

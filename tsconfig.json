@@ -2,10 +2,9 @@
   "include": ["./src/**/*.ts"],
   "exclude": ["./src/**/__tests__"],
   "compilerOptions": {
-    "lib": ["es2020"],
     "module": "commonjs",
-    "target": "es2020",
-
+    "target": "es6",
+    "moduleResolution": "node",
     "rootDir": "./",
     "outDir": "dist",
 
@@ -17,5 +16,6 @@
     "declaration": true,
     "resolveJsonModule": true,
     "allowJs": true
-  }
+  },
+  "lib": ["es2015"]
 }
