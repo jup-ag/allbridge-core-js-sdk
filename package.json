@@ -2,7 +2,7 @@
   "name": "@allbridge/bridge-core-sdk",
   "version": "0.0.0-development",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.mts",
   "license": "MIT",
   "files": [
     "/dist"
